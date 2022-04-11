@@ -8,6 +8,7 @@ import 'package:provider_flutter/simple/Counter.dart';
 import 'Activity/ActivityPage.dart';
 import 'Activity/provider/ActivityProvider.dart';
 
+import 'gallarySaver/GallarySaverPage.dart';
 import 'pagintaion/PaginationProviderPage.dart';
 import 'widgets/CounteApp.dart';
 
@@ -56,6 +57,13 @@ class NavigationListPage extends StatelessWidget {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const CounteApp()));
           },
+          child: const Text("Simple Provider"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const CounteApp()));
+          },
           child: const Text("Counter App"),
         ),
         TextButton(
@@ -80,6 +88,13 @@ class NavigationListPage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => VideoPlayerPage()));
           },
           child: const Text("Video"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => GallarySaverPage()));
+          },
+          child: const Text("Gallary Saver Package"),
         ),
       ]),
     );

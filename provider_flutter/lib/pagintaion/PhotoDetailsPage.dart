@@ -34,7 +34,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
         onPressed: () {
           _downloadImage(widget.url);
         },
-        child: Icon(Icons.download),
+        child: const Icon(Icons.download),
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -49,12 +49,12 @@ class _PhotoDetailsState extends State<PhotoDetails> {
           ),
           Positioned(
               child: AppBar(
-            title: Text("Transparent AppBar"),
+            title: const Text("Transparent AppBar"),
             backgroundColor: Colors.transparent,
             elevation: 0,
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.share),
+                icon: const Icon(Icons.share),
                 onPressed: () {},
                 tooltip: 'Share',
               ),
