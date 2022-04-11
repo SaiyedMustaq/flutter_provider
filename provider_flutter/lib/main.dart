@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_flutter/pagintaion/PhotoProvider.dart';
+import 'package:provider_flutter/pagintaion/VideoListingPage.dart';
+import 'package:provider_flutter/pagintaion/VideoProvider.dart';
 import 'package:provider_flutter/simple/Counter.dart';
 
+import 'Activity/ActivityPage.dart';
+import 'Activity/provider/ActivityProvider.dart';
+
+import 'pagintaion/PaginationProviderPage.dart';
 import 'widgets/CounteApp.dart';
 
 void main() {
@@ -19,13 +26,18 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: Counter(),
         ),
+        ChangeNotifierProvider<ActivityProvider>(
+          create: (_) => ActivityProvider(),
+        ),
+        ChangeNotifierProvider<PhotoProvider>(create: (_) => PhotoProvider()),
+        ChangeNotifierProvider<VideoProvider>(create: (_) => VideoProvider())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: NavigationListPage(),
+        home: const NavigationListPage(),
       ),
     );
   }
@@ -45,6 +57,29 @@ class NavigationListPage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const CounteApp()));
           },
           child: const Text("Counter App"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ActivityPage()));
+          },
+          child: const Text("Api Call"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PaginationProviderPage()));
+          },
+          child: const Text("Photo"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => VideoPlayerPage()));
+          },
+          child: const Text("Video"),
         ),
       ]),
     );
