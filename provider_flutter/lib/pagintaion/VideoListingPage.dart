@@ -38,7 +38,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
       appBar: AppBar(),
       body: Consumer<VideoProvider>(
         builder: (context, videoData, child) => ListView.separated(
-          separatorBuilder: (context, index) => Divider(),
+          separatorBuilder: (context, index) => const Divider(),
           itemCount: videoData.videos.length,
           controller: _scrollController,
           itemBuilder: (context, index) {
@@ -59,7 +59,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                           aspectRatio: 3 / 5,
                           autoPlay: true,
                           allowMuting: false,
-                          placeholder: AspectRatio(
+                          placeholder: const AspectRatio(
                             aspectRatio: 3 / 5,
                             child: Center(
                               child: CircularProgressIndicator(),
